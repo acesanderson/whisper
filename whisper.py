@@ -8,7 +8,7 @@ from transformers import AutoModelForSpeechSeq2Seq, AutoProcessor, pipeline
 from datasets import load_dataset
 import json
 
-MP3_FILE = "dr_visit_12-16-2024.mp3"
+MP3_FILE = "processed/dr_visit_12-16-2024.mp3"
 
 
 def setup_device():
