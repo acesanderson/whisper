@@ -7,13 +7,15 @@ import torch
 from transformers import AutoModelForSpeechSeq2Seq, AutoProcessor, pipeline
 from datasets import load_dataset
 
+MP3_FILE = "dr_visit_12-16-2024.mp3"
+
 if torch.cuda.is_available():
     print("CUDA is available.")
     device = "cuda:0"
     torch_dtype = torch.float16
 else:
     print("CUDA is not available.")
-    device = "cpu"
+    device = "mps"
     torch_dtype = torch.float32
 
 
@@ -46,5 +48,5 @@ sample = dataset[0]["audio"]
 # print(result["text"])
 
 # Put filename here.
-result = pipe("output.mp3", return_timestamps=True)
+result = pipe(MP3_FILE, return_timestamps=True)
 print(result["text"])
